@@ -16,12 +16,12 @@ const NavButton = styled.div`
     cursor:pointer;
     transition: all 0.1s ease-in-out;
     color:var(--nav-button-background);
-    border-radius:4px;
+    border-radius:24px;
     font-size:1.8vmax;
-    border:1px solid transparent;
+    border:2px solid transparent;
 
     &:hover{
-        border:1px solid var(--text-dark);
+        border:2px solid var(--text-dark);
     }
 `
 const NavHalf = styled.div`
@@ -40,13 +40,10 @@ const NavTitle=styled.div`
     width:fit-content;
     height:fit-content;
     padding:8px;
-    background-color:var(--nav-button-background);
+    background:linear-gradient(60deg,#516BEB,#ef4979);
     color:var(--text-light);
     border-radius:4px;
     font-size:2vw;
-    &:hover{
-
-    }
 `
 export const NavBar: React.FC = () => {
 

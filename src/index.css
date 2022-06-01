@@ -19,6 +19,8 @@ code {
   --nav-button-background:#494949;
   --text-light:#F9f8f7;
   --text-dark:#494949;
+  --blue:#516BEB;
+  --red:#ef4979;
 }
 
 h1,h2,h3,h4,h5,h6,p{
@@ -27,7 +29,7 @@ h1,h2,h3,h4,h5,h6,p{
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 /* Track */
@@ -37,7 +39,7 @@ h1,h2,h3,h4,h5,h6,p{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #413F42;
 }
 
 /* Handle on hover */
@@ -47,4 +49,5 @@ h1,h2,h3,h4,h5,h6,p{
 
 *{
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
