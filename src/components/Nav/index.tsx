@@ -15,13 +15,14 @@ const NavButton = styled.div`
     padding:8px 18px;
     cursor:pointer;
     transition: all 0.1s ease-in-out;
-    color:var(--nav-button-background);
+    color:var(--blue);
     border-radius:24px;
     font-size:1.8vmax;
     border:2px solid transparent;
+    font-weight:bold;
 
     &:hover{
-        border:2px solid var(--text-dark);
+        filter:brightness(1.1);
     }
 `
 const NavHalf = styled.div`

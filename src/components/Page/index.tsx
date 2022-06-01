@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { NavBar } from "../Nav";
-import test from './test.png';
-import arrow from './arrowDown.svg';
-import arrowVar from './arrowDownVar.svg';
+import test from './img/test.png';
+import arrow from './img/arrowDown.svg';
+import arrowVar from './img/arrowDownVar.svg';
 
 
 const PageContainer = styled.div<{light:boolean}>`
@@ -38,16 +38,32 @@ const Title = styled.h1`
 `
 const SubTitle = styled.h4<{light:boolean}>`
     font-size:2.5vmax;
-    color:${p=>p.light?'#413F42':'#fff'};
+    color:${p=>p.light?'#413F42':'#e9e6e3'};
 `
-const Section=styled.section`
-    width:100%;
+const Section=styled.section<{light:boolean}>`
+    width:50%;
     height:fit-content;
     min-height:300px;
-    display: flex;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-evenly;
+    border-radius: 15px;
+    margin-top: 100px;
+    padding:36px;
+    align-self: center;
+    background:${p=>p.light?'var(--blue)':'#333'}; 
+    border: 4px solid ${p=>p.light? 'var(--nav-button-background)' : 'var(--background-light)'};
 `
-
+const SectionTitle=styled.h1<{light:boolean}>`
+    color:#e9e6e3;
+    font-size:3vmax;
+`
+const SectionParagraph=styled.h1<{light:boolean}>`
+    color:#e9e6e3;
+    font-size:2vmax;
+    letter-spacing: 2px;
+`
 const Image=styled.img`
     width:500px;
 `
@@ -55,16 +71,32 @@ const Icon=styled.img`
     width:32px;
     height:32px;
 `
-const SectionTitle=styled.h1<{light:boolean}>`
-    color:${p=>p.light?'#413F42':'#fff'};
-    font-size:3vmax;
+const DarkmodeButton=styled.button<{light:boolean}>`
+    border:0;
+    background:${p=>p.light?'#413F42':'#e9e6e3'};
+    color:${p=>p.light?'#e9e6e3':'#413F42'};
+    padding:8px 24px;
+    width:fit-content;
+    border-radius:20px;
+    position:fixed;
+    right:20px;
+    font-weight:bold;
+    letter-spacing:1px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover{
+        transform:scale(1.1);
+    }
+    &:active{
+        transform:scale(1.05);
+    }
 `
 export const Page: React.FC = (props) => {
     const [Dark,setDark]=useState(true);
     return (
         <PageContainer light={Dark} >
             <NavBar />
-            <button onClick={()=>setDark(!Dark)}>test</button>
+            <DarkmodeButton light={Dark} onClick={()=>setDark(!Dark)}>{Dark?'Light':'Dark'}</DarkmodeButton>
             <MainContainer>
                 <div style={{display:'flex',flexDirection:'row',alignSelf:'end'}}>
                 <TitleContainer>
@@ -75,11 +107,31 @@ export const Page: React.FC = (props) => {
                 </div>
                     <Icon src={Dark ? arrow : arrowVar} style={{position:'absolute',bottom:'70px'}}/>
             </MainContainer>
-            <Section>
-                <SectionTitle light={Dark}>A propos de moi</SectionTitle>
+            <Section light={Dark}>
+                <SectionTitle light={Dark}>About me</SectionTitle>
+                <SectionParagraph light={Dark}>
+                    My name is Hanakhin , 
+                    i'm 23 years old 
+                    and im learning web development for 4 mounths now.
+                </SectionParagraph>
             </Section>
-            <Section>
-                <SectionTitle light={Dark}>A propos de mon travail</SectionTitle>
+
+            <Section light={Dark}>
+                <SectionTitle light={Dark}>Technologies i'm studying</SectionTitle>
+                <SectionParagraph light={Dark}>
+                    <ul>
+                        <li>React.js</li>
+                        <li>Typescipt</li>
+                        <li>Mongo.DB</li>
+                        <li>Express.js</li>
+                        <li>PHP 8</li>
+                        <li>MySql</li>
+                        <li>Wordpress</li>
+                        <li>Html/Css</li>
+                        <li>Symfony</li>
+                        <li>Figma</li>
+                    </ul>
+                </SectionParagraph>
             </Section>
         </PageContainer>
     )
