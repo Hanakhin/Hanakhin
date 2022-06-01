@@ -130,6 +130,7 @@ export const Page: React.FC = (props) => {
                         <li>Html/Css</li>
                         <li>Symfony</li>
                         <li>Figma</li>
+                        <li>Github/GitLab</li>
                     </ul>
                 </SectionParagraph>
             </Section>
